@@ -75,7 +75,7 @@ public class Spear : MonoBehaviour
                     for (var i = 0; i < numOfEnemyHits; i++)
                     {
                         var enemy = _enemyHits[i];
-                        Destroy(enemy.transform.gameObject);
+                        enemy.transform.GetComponent<Enemy>().Die();
                     }
 
             
@@ -161,7 +161,7 @@ public class Spear : MonoBehaviour
     {
         if (_attackingMelee && other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Enemy>().Die();
         }
     }
 }

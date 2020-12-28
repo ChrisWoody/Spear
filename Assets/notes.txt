@@ -1,0 +1,6 @@
+# issues
+- throwing spear it can kill enemies beyond when the spear lands (likely need to check the magnitude from where it will land to the enemies magnitude)
+ - actually ray cast to the world first, then use that magnitude as the distance for the enemy ray cast
+- when returning the spear, it doesn't kill the enemies on it's path back (just need another ray cast but to the player)
+- with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
+ - could have the enemies shoot slower-moving lasers or something requiring the player to move around, in which case the player could have health or be insta killed 
