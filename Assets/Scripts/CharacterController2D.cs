@@ -65,6 +65,9 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
+            // basic change in gravity, in lieu of a re-write
+            m_Rigidbody2D.gravityScale = m_Rigidbody2D.velocity.y <= 0 ? 3f : 1f;
+
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f * (m_Grounded ? 1.0f : 0.8f), m_Rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character

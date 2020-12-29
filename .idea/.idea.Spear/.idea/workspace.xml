@@ -20,15 +20,15 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpearPivot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpearTrail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Spear.cs" />
       <option value="$PROJECT_DIR$/Assets/notes.txt" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawnPoint.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Spear.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lxKx1jQga2zdtBwCNLH2zVzv8M" />
@@ -74,7 +74,9 @@
       <workItem from="1608533556187" duration="3522000" />
       <workItem from="1608685500246" duration="2537000" />
       <workItem from="1608773102751" duration="10195000" />
-      <workItem from="1609137298446" duration="3282000" />
+      <workItem from="1609137298446" duration="3876000" />
+      <workItem from="1609194600506" duration="1385000" />
+      <workItem from="1609219290678" duration="685000" />
     </task>
     <servers />
   </component>

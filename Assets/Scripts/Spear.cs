@@ -19,12 +19,13 @@ public class Spear : MonoBehaviour
     private const float AttackThrowChargeTime = 0.5f;
     private float _attackThrowChargeElapsed;
     private bool _attackThrowCharging;
-    private readonly RaycastHit2D[] _enemyHits = new RaycastHit2D[20];
+    private readonly RaycastHit2D[] _enemyHits = new RaycastHit2D[30];
     private bool _attackingThrowSkipFrame;
 
     private Vector3 _originalPosition;
     private Vector3 _attackPosition;
     private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider2D;
     private Transform _player;
     private Camera _mainCamera;
 
@@ -34,6 +35,7 @@ public class Spear : MonoBehaviour
         _originalPosition = transform.localPosition;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         ThrownSpear.GetComponent<SpriteRenderer>().enabled = false;
+        _collider2D = GetComponent<Collider2D>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _mainCamera = Camera.main;
     }
@@ -69,8 +71,8 @@ public class Spear : MonoBehaviour
                     var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
                     var pos = transform.position;
                     var right = mousePos.x < _player.position.x ? -transform.right : transform.right;
-                    var numOfEnemyHits = Physics2D.RaycastNonAlloc(pos, right, _enemyHits, 100f, LayerMask.GetMask("Enemy"));
                     var thrownHit = Physics2D.Raycast(pos, right, 100f, LayerMask.GetMask("Ground"));
+                    var numOfEnemyHits = Physics2D.RaycastNonAlloc(pos, right, _enemyHits, thrownHit.distance, LayerMask.GetMask("Enemy"));
 
                     for (var i = 0; i < numOfEnemyHits; i++)
                     {
@@ -81,6 +83,7 @@ public class Spear : MonoBehaviour
             
 
                     _spriteRenderer.enabled = false;
+                    _collider2D.enabled = false;
                     ThrownSpear.position = thrownHit.point;
                     //ThrownSpear.right = mousePos.x < _player.position.x ? transform.right : -transform.right;
                     ThrownSpear.right = right;
@@ -149,8 +152,15 @@ public class Spear : MonoBehaviour
                         _attacking = false;
                         _attackingThrow = false;
                         _spriteRenderer.enabled = true;
+                        _collider2D.enabled = true;
                         ThrownSpear.GetComponent<SpriteRenderer>().enabled = false;
                         SpearTrail.ShowTrail(ThrownSpear.position, transform.position);
+                        var diff = transform.position - ThrownSpear.position;
+                        var numOfEnemyHits = Physics2D.RaycastNonAlloc(ThrownSpear.position, diff.normalized, _enemyHits, diff.magnitude, LayerMask.GetMask("Enemy"));
+                        for (var i = 0; i < numOfEnemyHits; i++)
+                        {
+                            _enemyHits[i].transform.GetComponent<Enemy>().Die();
+                        }
                     }
                 }
             }
