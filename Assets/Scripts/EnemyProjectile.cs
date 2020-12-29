@@ -14,6 +14,9 @@ public class EnemyProjectile : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         if (_isAlive)
             transform.position += transform.right * (Time.deltaTime * 10f);
         

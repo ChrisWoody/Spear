@@ -39,6 +39,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         _spawnTimeoutElapsed += Time.deltaTime;
         if (_spawnTimeoutElapsed < SpawnTimeout)
             return;

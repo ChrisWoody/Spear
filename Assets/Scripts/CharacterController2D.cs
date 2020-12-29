@@ -38,6 +38,9 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 

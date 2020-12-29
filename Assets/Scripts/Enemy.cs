@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         if (!_isAlive)
             return;
 

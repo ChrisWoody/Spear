@@ -43,6 +43,9 @@ public class Spear : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         if (!_attacking && Input.GetMouseButtonDown(0))
         {
             _attacking = true;

@@ -17,6 +17,9 @@ public class SpearPivot : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!GameController.IsGameRunning())
+            return;
+        
         var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
