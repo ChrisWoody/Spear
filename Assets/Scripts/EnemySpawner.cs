@@ -5,22 +5,28 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public int totalEnemyCount = 30;
     public Transform enemyPrefab;
+    public Transform enemyProjectilePrefab;
     private Vector3[] _spawnPoints;
     private Transform[] _enemies;
 
     private const float SpawnTimeout = 1f;
     private float _spawnTimeoutElapsed;
 
-    private const int TotalEnemyCount = 30;
-    private readonly Stack<int> _deactivatedEnemies = new Stack<int>(TotalEnemyCount);
+    
+    private Stack<int> _deactivatedEnemies;
 
     private void Awake()
     {
-        _enemies = Enumerable.Range(0, TotalEnemyCount).Select(i =>
+        _deactivatedEnemies = new Stack<int>(totalEnemyCount);
+        _enemies = Enumerable.Range(0, totalEnemyCount).Select(i =>
         {
+            var enemyProjectile = Instantiate(enemyProjectilePrefab);
+            enemyProjectile.GetComponent<EnemyProjectile>().Die();
+            
             var enemy = Instantiate(enemyPrefab);
-            enemy.GetComponent<Enemy>().Hydrate(i, this);
+            enemy.GetComponent<Enemy>().Hydrate(i, this, enemyProjectile.GetComponent<EnemyProjectile>());
             enemy.GetComponent<Enemy>().Deactivate();
             
             _deactivatedEnemies.Push(i);

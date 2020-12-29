@@ -1,5 +1,10 @@
 # issues/things to do
 - with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
- - could have the enemies shoot slower-moving lasers or something requiring the player to move around, in which case the player could have health or be insta killed 
+ - could have the enemies shoot slower-moving lasers or something requiring the player to move around, in which case the player could have health or be insta killed
+ - it's possible some enemies can fire lasers and might be slower moving, with faster moving ones melee-only
+ - could also indicate that the enemy is about to fire, giving the player a chance to move beforehand
+- basic ui showing the number of enemies killed for that session and a high score
+- ui to start a new game on death
+- ui to start a new game 
 - improve the platforming, especially around the effects of gravity when jumping/falling
 - potentially while the spear is impaled, have it kill enemies that move through it
