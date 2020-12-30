@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.IsGameRunning())
+        if (!GameController.IsGameRunning)
             return;
         
         var axisRaw = Input.GetAxisRaw("Horizontal");
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameController.IsGameRunning())
+        if (!GameController.IsGameRunning)
             return;
         
         // Move our character

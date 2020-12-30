@@ -1,7 +1,6 @@
 # to do next
-- ui to start a new game
-- ui to start a new game on death
 - basic ui showing the number of enemies killed for that session and a high score
+ - plus show these on the game over screen 
 
 # gameplay to think about
 - with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
@@ -9,4 +8,5 @@
  - it's possible some enemies can fire lasers and might be slower moving, with faster moving ones melee-only
  - could also indicate that the enemy is about to fire, giving the player a chance to move beforehand
 - improve the platforming, especially around the effects of gravity when jumping/falling
+ - https://forum.unity.com/threads/whats-the-best-way-to-go-about-making-2d-physics-similar-to-old-school-platformers.694156/
 - potentially while the spear is impaled, have it kill enemies that move through it

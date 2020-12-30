@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private Transform _player;
-    private int _id = -1;
+    public int Id { get; private set; }
     private EnemySpawner _enemySpawner;
     private Collider2D _collider2d;
     private EnemyProjectile _enemyProjectile;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!GameController.IsGameRunning())
+        if (!GameController.IsGameRunning)
             return;
         
         if (!_isAlive)
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
 
     public void Hydrate(int id, EnemySpawner enemySpawner, EnemyProjectile enemyProjectile)
     {
-        _id = id;
+        Id = id;
         _enemySpawner = enemySpawner;
         _enemyProjectile = enemyProjectile;
     }
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Deactivate();
-        _enemySpawner.ReportEnemyDeath(_id);
+        _enemySpawner.ReportEnemyDeath(Id);
     }
 
     public void Deactivate()
@@ -66,6 +66,13 @@ public class Enemy : MonoBehaviour
         _isAlive = false;
         transform.position = new Vector3(0f, 300f, 0f);
         _collider2d.enabled = false;
+        _projectileFiredCooldownElapsed = 0f;
+    }
+
+    public void CompletelyDeactivate()
+    {
+        Deactivate();
+        _enemyProjectile.Die();
     }
 
     public void Activate()

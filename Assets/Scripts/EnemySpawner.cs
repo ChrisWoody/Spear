@@ -13,12 +13,13 @@ public class EnemySpawner : MonoBehaviour
 
     private const float SpawnTimeout = 1f;
     private float _spawnTimeoutElapsed;
-
     
     private Stack<int> _deactivatedEnemies;
 
     private void Awake()
     {
+        GameController.OnStartGame += GameControllerOnOnStartGame;
+
         _deactivatedEnemies = new Stack<int>(totalEnemyCount);
         _enemies = Enumerable.Range(0, totalEnemyCount).Select(i =>
         {
@@ -37,9 +38,21 @@ public class EnemySpawner : MonoBehaviour
         _spawnPoints = GetComponentsInChildren<EnemySpawnPoint>().Select(x => x.transform.position).ToArray();
     }
 
+    private void GameControllerOnOnStartGame()
+    {
+        _deactivatedEnemies.Clear();
+        foreach (var enemy in _enemies)
+        {
+            enemy.GetComponent<Enemy>().CompletelyDeactivate();
+            _deactivatedEnemies.Push(enemy.GetComponent<Enemy>().Id);
+        }
+
+        _spawnTimeoutElapsed = 0f;
+    }
+
     private void Update()
     {
-        if (!GameController.IsGameRunning())
+        if (!GameController.IsGameRunning)
             return;
         
         _spawnTimeoutElapsed += Time.deltaTime;

@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private static bool _isGameRunning;
+    private static UiController _uiController;
     
     // Start is called before the first frame update
     private void Start()
     {
         Time.timeScale = 0f;
+        _uiController = FindObjectOfType<UiController>();
     }
 
     // Update is called once per frame
@@ -20,9 +20,21 @@ public class GameController : MonoBehaviour
 
     public static void GameStarted()
     {
-        _isGameRunning = true;
+        IsGameRunning = true;
         Time.timeScale = 1f;
+        OnStartGame?.Invoke();
     }
 
-    public static bool IsGameRunning() => _isGameRunning;
+    public static void GameOver()
+    {
+        IsGameRunning = false;
+        Time.timeScale = 0f;
+
+        if (_uiController != null)
+            _uiController.GameOver();
+    }
+
+    public static bool IsGameRunning { get; private set; }
+
+    public static event Action OnStartGame;
 }

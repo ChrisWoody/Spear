@@ -15,6 +15,7 @@
           <e p="GameController.cs" t="Include" />
           <e p="Killzone.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="PlayerBounds.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Spear.cs" t="Include" />
           <e p="SpearPivot.cs" t="Include" />

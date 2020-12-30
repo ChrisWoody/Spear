@@ -14,7 +14,7 @@ public class EnemyProjectile : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (!GameController.IsGameRunning())
+        if (!GameController.IsGameRunning)
             return;
         
         if (_isAlive)
