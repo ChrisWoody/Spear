@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         Deactivate();
         _enemySpawner.ReportEnemyDeath(Id);
+        GameController.EnemyKilled();
     }
 
     public void Deactivate()

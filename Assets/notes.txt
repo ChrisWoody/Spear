@@ -1,6 +1,7 @@
 # to do next
 - basic ui showing the number of enemies killed for that session and a high score
  - plus show these on the game over screen 
+- when restarting the game, it appears the 'play again' button still has focus because when jumping the game gets reset
 
 # gameplay to think about
 - with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
