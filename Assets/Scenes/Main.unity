@@ -5566,7 +5566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuCanvas: {fileID: 1230092764}
+  mainMenuStartGameButton: {fileID: 1607163296}
   gameOverCanvas: {fileID: 1221261461}
+  gameOverStartGameButton: {fileID: 1951842486}
   gameCanvas: {fileID: 2107452361}
   gameOverScore: {fileID: 1575554530}
   gameOverHighScore: {fileID: 1130628}

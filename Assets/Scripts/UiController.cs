@@ -1,11 +1,12 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
     public Canvas mainMenuCanvas;
+    public Button mainMenuStartGameButton;
     public Canvas gameOverCanvas;
+    public Button gameOverStartGameButton;
     public Canvas gameCanvas;
     public Text gameOverScore;
     public Text gameOverHighScore;
@@ -14,7 +15,9 @@ public class UiController : MonoBehaviour
 
     private void Start()
     {
+        mainMenuStartGameButton.enabled = true;
         mainMenuCanvas.enabled = true;
+        gameOverStartGameButton.enabled = false;
         gameOverCanvas.enabled = false;
         gameCanvas.enabled = false;
 
@@ -31,7 +34,9 @@ public class UiController : MonoBehaviour
 
     public void StartGame()
     {
+        mainMenuStartGameButton.enabled = false;
         mainMenuCanvas.enabled = false;
+        gameOverStartGameButton.enabled = false;
         gameOverCanvas.enabled = false;
         gameCanvas.enabled = true;
         
@@ -40,7 +45,9 @@ public class UiController : MonoBehaviour
 
     private void GameOver()
     {
+        mainMenuStartGameButton.enabled = false;
         mainMenuCanvas.enabled = false;
+        gameOverStartGameButton.enabled = true;
         gameOverCanvas.enabled = true;
         gameCanvas.enabled = false;
 
