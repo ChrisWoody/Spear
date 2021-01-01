@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private EnemySpawner _enemySpawner;
     private Collider2D _collider2d;
     private EnemyProjectile _enemyProjectile;
+    private EnemyDeath _enemyDeath;
 
     private bool _isAlive;
 
@@ -48,15 +49,17 @@ public class Enemy : MonoBehaviour
         _enemyProjectile.Fire(transform.position, _player.position);
     }
 
-    public void Hydrate(int id, EnemySpawner enemySpawner, EnemyProjectile enemyProjectile)
+    public void Hydrate(int id, EnemySpawner enemySpawner, EnemyProjectile enemyProjectile, EnemyDeath enemyDeath)
     {
         Id = id;
         _enemySpawner = enemySpawner;
         _enemyProjectile = enemyProjectile;
+        _enemyDeath = enemyDeath;
     }
 
     public void Die()
     {
+        _enemyDeath.Play(transform.position);
         Deactivate();
         _enemySpawner.ReportEnemyDeath(Id);
         GameController.EnemyKilled();
@@ -74,6 +77,7 @@ public class Enemy : MonoBehaviour
     {
         Deactivate();
         _enemyProjectile.Die();
+        _enemyDeath.Deactivate();
     }
 
     public void Activate()

@@ -9,6 +9,7 @@
         <e p="Scripts" t="Include">
           <e p="CharacterController2D.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
+          <e p="EnemyDeath.cs" t="Include" />
           <e p="EnemyProjectile.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
           <e p="EnemySpawnPoint.cs" t="Include" />

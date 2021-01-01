@@ -24,16 +24,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawnPoint.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Killzone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerBounds.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyProjectile.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spear.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpearPivot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerBounds.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UiController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDeath.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UiController.cs" />
       <option value="$PROJECT_DIR$/Assets/notes.txt" />
     </changedPaths>
   </component>
@@ -87,7 +88,7 @@
       <workItem from="1609280740366" duration="1463000" />
       <workItem from="1609305821920" duration="4080000" />
       <workItem from="1609483932976" duration="27000" />
-      <workItem from="1609483997318" duration="684000" />
+      <workItem from="1609483997318" duration="3165000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public int totalEnemyCount = 30;
     public Transform enemyPrefab;
     public Transform enemyProjectilePrefab;
+    public Transform enemyDeathPrefab;
     private Vector3[] _spawnPoints;
     private Transform[] _enemies;
 
@@ -25,9 +26,12 @@ public class EnemySpawner : MonoBehaviour
         {
             var enemyProjectile = Instantiate(enemyProjectilePrefab);
             enemyProjectile.GetComponent<EnemyProjectile>().Die();
+
+            var enemyDeath = Instantiate(enemyDeathPrefab);
+            enemyDeath.GetComponent<EnemyDeath>().Deactivate();
             
             var enemy = Instantiate(enemyPrefab);
-            enemy.GetComponent<Enemy>().Hydrate(i, this, enemyProjectile.GetComponent<EnemyProjectile>());
+            enemy.GetComponent<Enemy>().Hydrate(i, this, enemyProjectile.GetComponent<EnemyProjectile>(), enemyDeath.GetComponent<EnemyDeath>());
             enemy.GetComponent<Enemy>().Deactivate();
             
             _deactivatedEnemies.Push(i);
