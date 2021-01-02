@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spear : MonoBehaviour
 {
     public Transform ThrownSpear;
     public SpearTrail SpearTrail;
+    public Slider slider;
     
     private const float AttackTimeout = 0.2f;
     private const float HalfAttackTimeout = AttackTimeout / 2f;
@@ -25,6 +27,7 @@ public class Spear : MonoBehaviour
     private Vector3 _originalPosition;
     private Vector3 _attackPosition;
     private SpriteRenderer _spriteRenderer;
+    private ParticleSystem _spearEffects;
     private Collider2D _collider2D;
     private Transform _player;
     private Camera _mainCamera;
@@ -34,10 +37,13 @@ public class Spear : MonoBehaviour
     {
         _originalPosition = transform.localPosition;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spearEffects = GetComponentInChildren<ParticleSystem>();
         ThrownSpear.GetComponent<SpriteRenderer>().enabled = false;
+        ThrownSpear.GetComponentInChildren<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         _collider2D = GetComponent<Collider2D>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _mainCamera = Camera.main;
+        slider.maxValue = AttackThrowChargeTime;
     }
 
     // Update is called once per frame
@@ -70,6 +76,7 @@ public class Spear : MonoBehaviour
                     _attackingThrowSkipFrame = true;
                     _attackThrowChargeElapsed = 0f;
                     _attackThrowCharging = false;
+                    slider.value = 0f;
 
                     var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
                     var pos = transform.position;
@@ -86,20 +93,24 @@ public class Spear : MonoBehaviour
             
 
                     _spriteRenderer.enabled = false;
+                    _spearEffects.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                     _collider2D.enabled = false;
                     ThrownSpear.position = thrownHit.point;
                     //ThrownSpear.right = mousePos.x < _player.position.x ? transform.right : -transform.right;
                     ThrownSpear.right = right;
                     ThrownSpear.GetComponent<SpriteRenderer>().enabled = true;
+                    ThrownSpear.GetComponentInChildren<ParticleSystem>().Play(true);
                     SpearTrail.ShowTrail(transform.position, thrownHit.point);
                 }
             }
             else
             {
+                slider.value = _attackThrowChargeElapsed;
                 if (Input.GetMouseButtonUp(1))
                 {
                     _attackThrowCharging = false;
                     _attackThrowChargeElapsed = 0f;
+                    slider.value = 0f;
                 }
             }
         }
@@ -155,8 +166,10 @@ public class Spear : MonoBehaviour
                         _attacking = false;
                         _attackingThrow = false;
                         _spriteRenderer.enabled = true;
+                        _spearEffects.Play();
                         _collider2D.enabled = true;
                         ThrownSpear.GetComponent<SpriteRenderer>().enabled = false;
+                        ThrownSpear.GetComponentInChildren<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                         SpearTrail.ShowTrail(ThrownSpear.position, transform.position);
                         var diff = transform.position - ThrownSpear.position;
                         var numOfEnemyHits = Physics2D.RaycastNonAlloc(ThrownSpear.position, diff.normalized, _enemyHits, diff.magnitude, LayerMask.GetMask("Enemy"));

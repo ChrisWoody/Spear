@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpearPivot : MonoBehaviour
 {
+    public Transform spearChargeSlider; // lazy way to make sure slider doesn't flip
+
     private Transform _player;
     private Camera _mainCamera;
 
@@ -26,12 +26,14 @@ public class SpearPivot : MonoBehaviour
         if (mousePos.x < _player.position.x)
         {
             _player.localScale = new Vector3(-1f, 1f, 1f);
+            spearChargeSlider.localScale = new Vector3(-1f, 1f, 1f);
             var playerToMouse = (mousePos - _player.position).normalized;
             transform.right = -playerToMouse;
         }
         else
         {
             _player.localScale = Vector3.one;
+            spearChargeSlider.localScale = Vector3.one;
             var playerToMouse = (mousePos - _player.position).normalized;
             transform.right = playerToMouse;
         }
