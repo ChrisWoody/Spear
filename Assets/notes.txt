@@ -1,6 +1,8 @@
 # to do next
-- add particle effects when the enemies die and for the spear as it is used
-- add some background music
+- design and implement the world
+- spawn points from everywhere
+- finalise design of player and enemy
+ - further, animate these (even with a very basic spritesheet)
 
 # gameplay to think about
 - with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
