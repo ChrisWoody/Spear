@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyPrefab;
     public Transform enemyProjectilePrefab;
     public Transform enemyDeathPrefab;
-    private Vector3[] _spawnPoints;
     private Transform[] _enemies;
 
     private const float SpawnTimeout = 1f;
@@ -38,8 +37,6 @@ public class EnemySpawner : MonoBehaviour
 
             return enemy;
         }).ToArray();
-        
-        _spawnPoints = GetComponentsInChildren<EnemySpawnPoint>().Select(x => x.transform.position).ToArray();
     }
 
     private void GameControllerOnOnStartGame()
@@ -67,19 +64,33 @@ public class EnemySpawner : MonoBehaviour
         
         if (_deactivatedEnemies.Count == 0)
             return;
-        
+
         var enemyCacheIndex = _deactivatedEnemies.Pop();
         var enemy = _enemies[enemyCacheIndex];
 
-        var spawnPointIndex = Random.Range(0, _spawnPoints.Length);
-        var spawnPoint = _spawnPoints[spawnPointIndex];
-
-        enemy.position = spawnPoint;
+        enemy.position = GetRandomSpawnPosition();
         enemy.GetComponent<Enemy>().Activate();
     }
 
     public void ReportEnemyDeath(int id)
     {
         _deactivatedEnemies.Push(id);
+    }
+
+    private static Vector3 GetRandomSpawnPosition()
+    {
+        float xPos, yPos;
+        if (Random.Range(0f, 1f) > 0.5f)
+        {
+            xPos = Random.Range(0f, 1f) > 0.5f ? 30f : -30f;
+            yPos = (Random.Range(0f, 1f) * 30f) - 15f;
+        }
+        else
+        {
+            xPos = (Random.Range(0f, 1f) * 60f) - 30f;
+            yPos = Random.Range(0f, 1f) > 0.5f ? 15f : -15f;
+        }
+
+        return new Vector3(xPos, yPos, 0f);
     }
 }

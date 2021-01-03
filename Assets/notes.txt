@@ -1,6 +1,4 @@
 # to do next
-- design and implement the world
-- spawn points from everywhere
 - finalise design of player and enemy
  - further, animate these (even with a very basic spritesheet)
 
