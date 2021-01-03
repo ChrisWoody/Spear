@@ -10,8 +10,6 @@
 - improve the platforming, especially around the effects of gravity when jumping/falling
  - https://forum.unity.com/threads/whats-the-best-way-to-go-about-making-2d-physics-similar-to-old-school-platformers.694156/
 - potentially while the spear is impaled, have it kill enemies that move through it
-- design and implement the final world, including using box colliders for the world (because tilemap composite isn't very precise)
- - HOWEVER i like the effect of the blood failing down, so can still do that with the box collider?
 
 # nice to haves
 - animated world

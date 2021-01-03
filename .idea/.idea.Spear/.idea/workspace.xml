@@ -34,8 +34,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Spear.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpearPivot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDeath.cs" />
-      <option value="$PROJECT_DIR$/Assets/notes.txt" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/notes.txt" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lxKx1jQga2zdtBwCNLH2zVzv8M" />
@@ -90,7 +90,7 @@
       <workItem from="1609483932976" duration="27000" />
       <workItem from="1609483997318" duration="3337000" />
       <workItem from="1609558348081" duration="3383000" />
-      <workItem from="1609633691408" duration="2544000" />
+      <workItem from="1609633691408" duration="2901000" />
     </task>
     <servers />
   </component>
