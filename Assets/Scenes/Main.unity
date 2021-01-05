@@ -4074,6 +4074,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6274971242464838868, guid: 6eb0ecba493362d42a55e4a9fdf438e3, type: 3}
   enemyProjectilePrefab: {fileID: 3976949214019588698, guid: aba952cbe5ff1f94e9e3be2e8cd29da5, type: 3}
   enemyDeathPrefab: {fileID: 4807916331774643987, guid: 7b02ce33e9a7ad448b1e982f6996476c, type: 3}
+  enemyDeathFadeOutPrefab: {fileID: 2123319578259648699, guid: 9d9f7c9c35c158d4a8850f497de882d5, type: 3}
 --- !u!4 &646063359
 Transform:
   m_ObjectHideFlags: 0

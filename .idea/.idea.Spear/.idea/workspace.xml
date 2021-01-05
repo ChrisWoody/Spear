@@ -30,12 +30,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerBounds.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UiController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spear.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpearPivot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDeath.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/notes.txt" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDeathFadeOut.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lxKx1jQga2zdtBwCNLH2zVzv8M" />
@@ -90,7 +91,8 @@
       <workItem from="1609483932976" duration="27000" />
       <workItem from="1609483997318" duration="3337000" />
       <workItem from="1609558348081" duration="3383000" />
-      <workItem from="1609633691408" duration="2901000" />
+      <workItem from="1609633691408" duration="3500000" />
+      <workItem from="1609816480554" duration="4558000" />
     </task>
     <servers />
   </component>

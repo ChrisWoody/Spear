@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Collider2D _collider2d;
     private EnemyProjectile _enemyProjectile;
     private EnemyDeath _enemyDeath;
+    private EnemyDeathFadeOut _enemyDeathFadeOut;
 
     private bool _isAlive;
 
@@ -33,6 +34,8 @@ public class Enemy : MonoBehaviour
         var diff = -(transform.position - _player.position).normalized;
         transform.position += diff * (Time.deltaTime * 2f);
 
+        transform.localScale = _player.position.x < transform.position.x ? new Vector3(-2.5f, 2.5f, 1f) : new Vector3(2.5f, 2.5f, 1f);
+
         if (_enemyProjectile.IsAlive())
             return;
         
@@ -49,17 +52,19 @@ public class Enemy : MonoBehaviour
         _enemyProjectile.Fire(transform.position, _player.position);
     }
 
-    public void Hydrate(int id, EnemySpawner enemySpawner, EnemyProjectile enemyProjectile, EnemyDeath enemyDeath)
+    public void Hydrate(int id, EnemySpawner enemySpawner, EnemyProjectile enemyProjectile, EnemyDeath enemyDeath, EnemyDeathFadeOut enemyDeathFadeOut)
     {
         Id = id;
         _enemySpawner = enemySpawner;
         _enemyProjectile = enemyProjectile;
         _enemyDeath = enemyDeath;
+        _enemyDeathFadeOut = enemyDeathFadeOut;
     }
 
     public void Die()
     {
         _enemyDeath.Play(transform.position);
+        _enemyDeathFadeOut.Play(transform);
         Deactivate();
         _enemySpawner.ReportEnemyDeath(Id);
         GameController.EnemyKilled();
@@ -78,6 +83,7 @@ public class Enemy : MonoBehaviour
         Deactivate();
         _enemyProjectile.Die();
         _enemyDeath.Deactivate();
+        _enemyDeathFadeOut.Deactivate();
     }
 
     public void Activate()

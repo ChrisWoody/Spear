@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyPrefab;
     public Transform enemyProjectilePrefab;
     public Transform enemyDeathPrefab;
+    public Transform enemyDeathFadeOutPrefab;
     private Transform[] _enemies;
 
     private const float SpawnTimeout = 1f;
@@ -28,9 +29,12 @@ public class EnemySpawner : MonoBehaviour
 
             var enemyDeath = Instantiate(enemyDeathPrefab);
             enemyDeath.GetComponent<EnemyDeath>().Deactivate();
+
+            var enemyDeathFadeOut = Instantiate(enemyDeathFadeOutPrefab);
+            enemyDeathFadeOut.GetComponent<EnemyDeathFadeOut>().Deactivate();
             
             var enemy = Instantiate(enemyPrefab);
-            enemy.GetComponent<Enemy>().Hydrate(i, this, enemyProjectile.GetComponent<EnemyProjectile>(), enemyDeath.GetComponent<EnemyDeath>());
+            enemy.GetComponent<Enemy>().Hydrate(i, this, enemyProjectile.GetComponent<EnemyProjectile>(), enemyDeath.GetComponent<EnemyDeath>(), enemyDeathFadeOut.GetComponent<EnemyDeathFadeOut>());
             enemy.GetComponent<Enemy>().Deactivate();
             
             _deactivatedEnemies.Push(i);
