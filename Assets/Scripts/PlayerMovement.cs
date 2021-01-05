@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D Controller;
-
-    //private Animator _animator;
+    private Animator _animator;
 
     public float RunSpeed = 40f;
 
@@ -15,10 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private float _currentHorizontalMove;
     private bool _jump = false;
     private float _currentHorizontalVelocity;
+    private static readonly int RunParameter = Animator.StringToHash("Run");
 
     private void Awake()
     {
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
         //_currentHorizontalMove = Mathf.Lerp(_currentHorizontalMove, axisRaw, Time.deltaTime / 2f);
         _currentHorizontalMove = Mathf.SmoothDamp(_currentHorizontalMove, axisRaw, ref _currentHorizontalVelocity, 0.1f);
 
-        //if (_currentHorizontalMove != 0f)
-            //_animator.SetBool("Run", true);
-        //else
-            //_animator.SetBool("Run", false);
+        if (_currentHorizontalMove >= 0.05f || _currentHorizontalMove <= -0.05f) 
+            _animator.SetBool(RunParameter, true);
+        else
+            _animator.SetBool(RunParameter, false);
 
         _horizontalMove = _currentHorizontalMove * RunSpeed;
         if (!_jump)

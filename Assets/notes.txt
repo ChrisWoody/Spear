@@ -17,3 +17,4 @@
 # credits
 world: https://www.gamedevmarket.net/asset/super-pixel-dungeon/
 enemy spritesheet: https://opengameart.org/content/cute-monster-sprite-sheet
+player spritesheet: https://opengameart.org/content/cat-fighter-sprite-sheet
