@@ -8,6 +8,7 @@
         <e p="notes.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CharacterController2D.cs" t="Include" />
+          <e p="Crosshair.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyDeath.cs" t="Include" />
           <e p="EnemyDeathFadeOut.cs" t="Include" />

@@ -1,6 +1,8 @@
 # to do next
 - finalise design of player and enemy
  - further, animate these (even with a very basic spritesheet)
+- add a basic crosshair that appears during the game
+- make sure webgl export has right-click turned off
 
 # gameplay to think about
 - with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around

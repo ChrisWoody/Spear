@@ -12,6 +12,7 @@ public class UiController : MonoBehaviour
     public Text gameOverHighScore;
     public Text gameScore;
     public Text gameHighScore;
+    public Crosshair crosshair;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class UiController : MonoBehaviour
         gameOverStartGameButton.enabled = false;
         gameOverCanvas.enabled = false;
         gameCanvas.enabled = false;
+        crosshair.Hide();
 
         GameController.OnStartGame += GameControllerOnOnEnemyKilled;
         GameController.OnGameOver += GameOver;
@@ -39,6 +41,7 @@ public class UiController : MonoBehaviour
         gameOverStartGameButton.enabled = false;
         gameOverCanvas.enabled = false;
         gameCanvas.enabled = true;
+        crosshair.Show();
         
         GameController.GameStarted();
     }
@@ -50,6 +53,7 @@ public class UiController : MonoBehaviour
         gameOverStartGameButton.enabled = true;
         gameOverCanvas.enabled = true;
         gameCanvas.enabled = false;
+        crosshair.Hide();
 
         gameOverScore.text = "Score: " + GameController.Score;
         gameOverHighScore.text = "High Score: " + GameController.HighScore;
