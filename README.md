@@ -9,3 +9,4 @@ A simple 2d video game where you must fight off endless endless alien hordes wit
 - World tilemap spitesheet: https://www.gamedevmarket.net/asset/super-pixel-dungeon
 - Enemy spritesheet: https://opengameart.org/content/cute-monster-sprite-sheet
 - Player spritesheet: https://opengameart.org/content/cat-fighter-sprite-sheet
+- Background music (8Bit Action Game Loops -> Loop#1.wav): https://assetstore.unity.com/packages/audio/music/rock/big-music-bundle-action-rock-energy-65132

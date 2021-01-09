@@ -1,17 +1,8 @@
 # to do next
-- finalise design of player and enemy
- - further, animate these (even with a very basic spritesheet)
-- add a basic crosshair that appears during the game
-- make sure webgl export has right-click turned off
 
 # gameplay to think about
-- with the current setup, it's easy for the player to just stand still and kill the enemies as they come in, so need to get them moving around
- - could have the enemies shoot slower-moving lasers or something requiring the player to move around, in which case the player could have health or be insta killed
- - it's possible some enemies can fire lasers and might be slower moving, with faster moving ones melee-only
- - could also indicate that the enemy is about to fire, giving the player a chance to move beforehand
 - improve the platforming, especially around the effects of gravity when jumping/falling
  - https://forum.unity.com/threads/whats-the-best-way-to-go-about-making-2d-physics-similar-to-old-school-platformers.694156/
-- potentially while the spear is impaled, have it kill enemies that move through it
 
 # nice to haves
 - animated world
