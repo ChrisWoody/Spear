@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _collider2d = GetComponent<Collider2D>();
-        _projectileFiredCooldown = Random.Range(10f, 20f);
+        _projectileFiredCooldown = Random.Range(8f, 15f);
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         
         // if too close to the player, dont fire projectile
         var playerMagnitude = Vector3.Magnitude(transform.position - _player.position);
-        if (playerMagnitude < 10f)
+        if (playerMagnitude < 7f)
             return;
         
         _projectileFiredCooldownElapsed += Time.deltaTime;

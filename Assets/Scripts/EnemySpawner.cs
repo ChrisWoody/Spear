@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public int totalEnemyCount = 30;
+    public int totalEnemyCount = 40;
     public Transform enemyPrefab;
     public Transform enemyProjectilePrefab;
     public Transform enemyDeathPrefab;

@@ -20,3 +20,8 @@
 world: https://www.gamedevmarket.net/asset/super-pixel-dungeon/
 enemy spritesheet: https://opengameart.org/content/cute-monster-sprite-sheet
 player spritesheet: https://opengameart.org/content/cat-fighter-sprite-sheet
+
+# running webgl locally (can also 'build and run' from unity
+- npm install --global http-server
+- cd to index.html folder
+- run `http-server`
