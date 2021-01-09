@@ -1,4 +1,4 @@
-# Spear
+# Spear Cat
 
 A simple 2d video game where you must fight off endless endless alien hordes with a special spear, as a cat.
 
