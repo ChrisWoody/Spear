@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyDeathFadeOutPrefab;
     private Transform[] _enemies;
 
-    private const float SpawnTimeout = 1f;
+    private float _spawnTimeout = 1f;
     private float _spawnTimeoutElapsed;
     
     private Stack<int> _deactivatedEnemies;
@@ -53,6 +53,8 @@ public class EnemySpawner : MonoBehaviour
         }
 
         _spawnTimeoutElapsed = 0f;
+
+        _spawnTimeout = GameController.Difficulty == Difficulty.Easy ? 2f : 1f;
     }
 
     private void Update()
@@ -61,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         
         _spawnTimeoutElapsed += Time.deltaTime;
-        if (_spawnTimeoutElapsed < SpawnTimeout)
+        if (_spawnTimeoutElapsed < _spawnTimeout)
             return;
         
         _spawnTimeoutElapsed = 0f;

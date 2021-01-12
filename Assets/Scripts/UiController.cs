@@ -14,6 +14,9 @@ public class UiController : MonoBehaviour
     public Text gameHighScore;
     public Crosshair crosshair;
 
+    public Transform easyDifficulty;
+    public Transform normalDifficulty;
+
     private void Start()
     {
         mainMenuStartGameButton.enabled = true;
@@ -22,6 +25,9 @@ public class UiController : MonoBehaviour
         gameOverCanvas.enabled = false;
         gameCanvas.enabled = false;
         crosshair.Hide();
+
+        easyDifficulty.GetComponent<Image>().color = Color.grey;
+        normalDifficulty.GetComponent<Image>().color = Color.white;
 
         GameController.OnStartGame += GameControllerOnOnEnemyKilled;
         GameController.OnGameOver += GameOver;
@@ -57,5 +63,19 @@ public class UiController : MonoBehaviour
 
         gameOverScore.text = "Score: " + GameController.Score;
         gameOverHighScore.text = "High Score: " + GameController.HighScore;
+    }
+
+    public void SetDifficultyEasy()
+    {
+        easyDifficulty.GetComponent<Image>().color = Color.white;
+        normalDifficulty.GetComponent<Image>().color = Color.grey;
+        GameController.SetDifficulty(Difficulty.Easy);
+    }
+
+    public void SetDifficultyNormal()
+    {
+        easyDifficulty.GetComponent<Image>().color = Color.grey;
+        normalDifficulty.GetComponent<Image>().color = Color.white;
+        GameController.SetDifficulty(Difficulty.Normal);
     }
 }

@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     private float _projectileFiredCooldown;
     private float _projectileFiredCooldownElapsed;
 
+    private float _speed = 2f;
+    private bool _canShoot = true;
+
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -32,13 +35,16 @@ public class Enemy : MonoBehaviour
             return;
 
         var diff = -(transform.position - _player.position).normalized;
-        transform.position += diff * (Time.deltaTime * 2f);
+        transform.position += diff * (Time.deltaTime * _speed);
 
         transform.localScale = _player.position.x < transform.position.x ? new Vector3(-2.5f, 2.5f, 1f) : new Vector3(2.5f, 2.5f, 1f);
 
-        if (_enemyProjectile.IsAlive())
+        if (!_canShoot)
             return;
         
+        if (_enemyProjectile.IsAlive())
+            return;
+
         // if too close to the player, dont fire projectile
         var playerMagnitude = Vector3.Magnitude(transform.position - _player.position);
         if (playerMagnitude < 7f)
@@ -90,5 +96,8 @@ public class Enemy : MonoBehaviour
     {
         _isAlive = true;
         _collider2d.enabled = true;
+
+        _canShoot = GameController.Difficulty == Difficulty.Normal;
+        _speed = GameController.Difficulty == Difficulty.Normal ? 2f : 1.5f;
     }
 }

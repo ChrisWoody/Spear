@@ -39,4 +39,17 @@ public class GameController : MonoBehaviour
             HighScore = Score;
         OnEnemyKilled?.Invoke();
     }
+
+    public static Difficulty Difficulty { get; private set; }
+    
+    public static void SetDifficulty(Difficulty difficulty)
+    {
+        Difficulty = difficulty;
+    }
+}
+
+public enum Difficulty
+{
+    Normal,
+    Easy
 }
