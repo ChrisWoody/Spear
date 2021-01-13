@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
         OnEnemyKilled?.Invoke();
     }
 
-    public static Difficulty Difficulty { get; private set; }
+    public static Difficulty Difficulty { get; private set; } = Difficulty.Normal;
     
     public static void SetDifficulty(Difficulty difficulty)
     {

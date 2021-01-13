@@ -17,6 +17,9 @@ public class UiController : MonoBehaviour
     public Transform easyDifficulty;
     public Transform normalDifficulty;
     public Text gameOverDifficultyLabel;
+    public Text gameOverHighScoreDifficultyLabel;
+    public Transform gameOverEasyDifficulty;
+    public Transform gameOverNormalDifficulty;
 
     private void Start()
     {
@@ -62,15 +65,22 @@ public class UiController : MonoBehaviour
         gameCanvas.enabled = false;
         crosshair.Hide();
 
+        gameOverEasyDifficulty.GetComponent<Image>().color = GameController.Difficulty == Difficulty.Easy ? Color.white : Color.grey;
+        gameOverNormalDifficulty.GetComponent<Image>().color = GameController.Difficulty == Difficulty.Normal ? Color.white : Color.grey;
+
+        gameOverDifficultyLabel.text = $"Difficulty: {GameController.Difficulty}";
         gameOverScore.text = $"Score: {GameController.Score}";
         gameOverHighScore.text = $"High Score: {GameController.HighScore}";
-        gameOverDifficultyLabel.text = $"Difficulty: {GameController.Difficulty}";
+        if (GameController.Score == GameController.HighScore) // so if it's a high score, also set the difficulty it was attained with
+            gameOverHighScoreDifficultyLabel.text = $"Difficulty: {GameController.Difficulty}";
     }
 
     public void SetDifficultyEasy()
     {
         easyDifficulty.GetComponent<Image>().color = Color.white;
         normalDifficulty.GetComponent<Image>().color = Color.grey;
+        gameOverEasyDifficulty.GetComponent<Image>().color = Color.white;
+        gameOverNormalDifficulty.GetComponent<Image>().color = Color.grey;
         GameController.SetDifficulty(Difficulty.Easy);
     }
 
@@ -78,6 +88,8 @@ public class UiController : MonoBehaviour
     {
         easyDifficulty.GetComponent<Image>().color = Color.grey;
         normalDifficulty.GetComponent<Image>().color = Color.white;
+        gameOverEasyDifficulty.GetComponent<Image>().color = Color.grey;
+        gameOverNormalDifficulty.GetComponent<Image>().color = Color.white;
         GameController.SetDifficulty(Difficulty.Normal);
     }
 }
