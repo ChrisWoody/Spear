@@ -16,6 +16,7 @@ public class UiController : MonoBehaviour
 
     public Transform easyDifficulty;
     public Transform normalDifficulty;
+    public Text gameOverDifficultyLabel;
 
     private void Start()
     {
@@ -61,8 +62,9 @@ public class UiController : MonoBehaviour
         gameCanvas.enabled = false;
         crosshair.Hide();
 
-        gameOverScore.text = "Score: " + GameController.Score;
-        gameOverHighScore.text = "High Score: " + GameController.HighScore;
+        gameOverScore.text = $"Score: {GameController.Score}";
+        gameOverHighScore.text = $"High Score: {GameController.HighScore}";
+        gameOverDifficultyLabel.text = $"Difficulty: {GameController.Difficulty}";
     }
 
     public void SetDifficultyEasy()
