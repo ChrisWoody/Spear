@@ -92,4 +92,9 @@ public class UiController : MonoBehaviour
         gameOverNormalDifficulty.GetComponent<Image>().color = Color.white;
         GameController.SetDifficulty(Difficulty.Normal);
     }
+
+    public void SetEnemyDeathExtreme(bool value)
+    {
+        GameController.SetEnemyDeathEffect(value);
+    }
 }

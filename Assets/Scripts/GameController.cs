@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     public static event Action OnStartGame;
     public static event Action OnGameOver;
     public static event Action OnEnemyKilled;
+    public static event Action<bool> OnEnemyDeathEffectSet;
 
     public static int Score { get; private set; }
     public static int HighScore { get; private set; }
@@ -45,6 +46,11 @@ public class GameController : MonoBehaviour
     public static void SetDifficulty(Difficulty difficulty)
     {
         Difficulty = difficulty;
+    }
+
+    public static void SetEnemyDeathEffect(bool extreme)
+    {
+        OnEnemyDeathEffectSet?.Invoke(extreme);
     }
 }
 
