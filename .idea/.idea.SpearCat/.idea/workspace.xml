@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B5AB4A35-0B52-494C-A111-DE05393067DC/83/738c7e52/ParticleSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D654208B-C5B9-407D-98D9-484DB44397EA/e1/afe93cbd/Rigidbody2D.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -17,6 +18,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UiController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDeath.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mzMnpe2yhCNPe6pE49M3yNMdtk" />
@@ -62,6 +65,7 @@
       <workItem from="1610492148186" duration="753000" />
       <workItem from="1610516655852" duration="2825000" />
       <workItem from="1610616638018" duration="1384000" />
+      <workItem from="1610863985502" duration="5293000" />
     </task>
     <servers />
   </component>
